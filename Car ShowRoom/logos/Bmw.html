@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Circle with PixiJS</title>
+  <style>
+    body, html {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    #pixi-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .logo-text {
+      position: absolute;
+      font-family: Arial, sans-serif;
+      font-size: 30px;
+      color: white;
+      opacity: 0; /* Initially hidden */
+    }
+    #b-text {
+      top: 240px;
+      left: 635px;
+      font-weight: 900;
+      transform: rotate(-35deg);
+    }
+    #m-text {
+      top: 215px;
+      left: 700px;
+      font-weight: 900;
+      transform: rotate(-3deg);
+    }
+    #w-text {
+      top: 240px;
+      left: 775px;
+      font-weight: 900;
+      transform: rotate(35deg);
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.7/pixi.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+  <div id="pixi-container">
+    <!-- Letters initially hidden -->
+    <div class="logo-text" id="b-text">B</div>
+    <div class="logo-text" id="m-text">M</div>
+    <div class="logo-text" id="w-text">W</div>
+  </div>
+
+  <script>
+    // Create a PixiJS application
+    const app = new PIXI.Application({ width: window.innerWidth, height: window.innerHeight });
+    document.getElementById('pixi-container').appendChild(app.view);
+
+    // Create a Graphics object for the bigger circle
+    const biggerCircle = new PIXI.Graphics();
+    biggerCircle.beginFill(0x000000); // Black background
+    biggerCircle.lineStyle(4, 0xffffff); // White border
+    biggerCircle.drawCircle(0, 0, 150); // Centered circle with radius 150
+    biggerCircle.endFill();
+
+    // Position the bigger circle outside the screen initially
+    biggerCircle.x = -300;
+    biggerCircle.y = app.renderer.height / 2;
+
+    // Add the bigger circle to the stage
+    app.stage.addChild(biggerCircle);
+
+    // Draw the divided halves on the smaller circle
+    const smallerCircle = new PIXI.Graphics();
+    const colors = [0x007ac9, 0xffffff, 0x007ac9, 0xffffff]; // Blue, White, Blue, White
+    for (let i = 0; i < 4; i++) {
+      smallerCircle.beginFill(colors[i]);
+      smallerCircle.lineStyle(4, 0xffffff); 
+      smallerCircle.moveTo(0, 0);
+      smallerCircle.arc(0, 0, 100, i * Math.PI / 2, (i + 1) * Math.PI / 2); // Draw an arc at center (0,0) with radius 100
+      smallerCircle.lineTo(0, 0);
+      smallerCircle.endFill();
+    }
+
+    // Position the smaller circle outside the screen initially
+    smallerCircle.x = app.renderer.width + 300;
+    smallerCircle.y = app.renderer.height / 2;
+
+    // Add the smaller circle to the stage
+    app.stage.addChild(smallerCircle);
+
+    // Animation timeline
+    const tl = gsap.timeline();
+
+    // Animation to reveal the bigger circle
+    tl.to(biggerCircle, { duration: 2, ease: "power2.out", x: app.renderer.width / 2, y: app.renderer.height / 2 });
+
+    // Animation to reveal the smaller circle
+    tl.to(smallerCircle, { duration: 2, ease: "power2.out", x: app.renderer.width / 2, y: app.renderer.height / 2 }, "-=0.5");
+
+    // Animation to reveal the letters one by one
+    tl.to("#b-text", { duration: 0.5, opacity: 1 })
+      .to("#m-text", { duration: 0.5, opacity: 1 })
+      .to("#w-text", { duration: 0.5, opacity: 1 });
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi Logo Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            display: block;
+        }
+        #logo-container {
+            text-align: center;
+            color: #FFF;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
+        #slideshow-container {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+}
+
+#slide-container {
+    width: 100%;
+    height: 100%;
+}
+    </style>
+</head>
+<body>
+    <div id="audi-logo-page">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.7/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // Create a Pixi Application
+        let app = new PIXI.Application({ 
+            width: 800, 
+            height: 600,                       
+            antialias: true, 
+            transparent: true, 
+            resolution: 1
+        });
+
+        // Add the canvas that Pixi automatically created for you to the HTML document
+        document.body.appendChild(app.view);
+
+        // Create container for the rings
+        let ringsContainer = new PIXI.Container();
+        app.stage.addChild(ringsContainer);
+
+        // Define Audi logo ring positions
+        let positions = [
+            { x: -100, y: 0, radius: 50, thickness: 12 }, // Left
+            { x: -30, y: 0, radius: 50, thickness: 12 }, // Top Left
+            { x: 40, y: 0, radius: 50, thickness: 12 }, // Top Right
+            { x: 110, y: 0, radius: 50, thickness: 12 }, // Right
+        ];
+
+        // Create Audi logo rings
+        let rings = [];
+        for (let i = 0; i < positions.length; i++) {
+            let ring = new PIXI.Graphics();
+            ring.lineStyle(positions[i].thickness, 0xC5C0C0); // Silver color
+            //ring.lineStyle(positions[i].thickness, 0xFFFFFF, 0.3); 
+            ring.drawCircle(0, 0, positions[i].radius);
+            ring.x = app.screen.width / 2 + positions[i].x;
+            ring.y = app.screen.height / 2 + positions[i].y;
+            ring.scale.set(0); // initially scale to zero
+            ringsContainer.addChild(ring);
+            rings.push(ring);
+        }
+
+        // Define animation properties
+        let duration = 1.5; // in seconds
+        let delay = 0.2; // in seconds
+
+        // Animation function
+        function animate() {
+            for (let i = 0; i < rings.length; i++) {
+                let targetX = app.screen.width / 2 + positions[i].x;
+                let targetY = app.screen.height / 2 + positions[i].y;
+                gsap.to(rings[i].scale, { x: 1, y: 1, duration: duration, delay: delay * i, ease: "power1.inOut" });
+                gsap.to(rings[i], { x: targetX, y: targetY, duration: duration, delay: delay * i, ease: "power1.inOut" });
+
+                
+            }
+        }
+
+        // Run animation
+        animate();
+
+        // Create text
+        let text = new PIXI.Text("Audi", { fill: "red", fontSize: 30 });
+        text.anchor.set(0.5);
+        text.x = app.screen.width / 2;
+        text.y = app.screen.height / 2 + 120;
+        app.stage.addChild(text);
+
+
+
+        setTimeout(function() {
+                document.getElementById("audi-logo-page").style.display = "none";
+                // Replace "other-page.html" with the URL of the other page you want to open
+                window.location.href = "other-page.html";
+            }, 3000);
+
+        // Define your image URLs here
+            const images = [
+                '../assets/audi1.jpeg',
+                '../assets/audi2.jpeg',
+                '../assets/audi3.png',
+                '../assets/audi4.png',
+                '../assets/audi5.jpeg',
+            ];
+
+            // Create PIXI application
+            document.getElementById('slide-container').appendChild(app.view);
+
+            // Load images and create sprites
+            const loader = new PIXI.Loader();
+            for (let i = 0; i < images.length; i++) {
+                loader.add('image' + i, images[i]);
+            }
+            loader.load((loader, resources) => {
+                const sprites = [];
+                for (let i = 0; i < images.length; i++) {
+                    const sprite = new PIXI.Sprite(resources['image' + i].texture);
+                    sprite.width = app.screen.width;
+                    sprite.height = app.screen.height;
+                    sprite.visible = (i === 0); // Show the first image, hide the rest
+                    sprites.push(sprite);
+                    app.stage.addChild(sprite);
+                }
+
+                // Function to change slide
+                let currentIndex = 0;
+                function changeSlide(index) {
+                    sprites.forEach((sprite, i) => {
+                        sprite.visible = (i === index);
+                    });
+                    currentIndex = index;
+                }
+
+                // Auto change slides every 3 seconds
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    changeSlide(currentIndex);
+                }, 3000);
+            });
+
+    </script>
+    </div>
+</body>
+</html>
