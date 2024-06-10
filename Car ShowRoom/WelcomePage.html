@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: rgba(255, 255, 255, 0.725);
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px; /* Adjust top padding to move text down */
+        }
+
+        h1 {
+            font-size: 80px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin-bottom: 20px; /* Add margin bottom to create space between text and images */
+            opacity: 0; /* Initially hide the text */
+            animation: fadeInAndMove 2s ease forwards; /* Apply animation */
+        }
+
+        .logos {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Initially hide the logos */
+            animation: fadeIn 2s ease forwards; /* Apply animation */
+        }
+
+        .logo-container {
+            margin: 10px;
+            opacity: 0; /* Initially hide each logo */
+            animation: fadeIn 2s ease forwards; /* Apply animation */
+            animation-delay: calc(var(--index) * 0.5s); /* Delay each logo based on its index */
+        }
+
+        .logo {
+            width: 150px; /* Adjust image width */
+            margin-right: 20px;
+            height: auto;
+            cursor: pointer; /* Add pointer cursor for clickable effect */
+        }
+
+        .logo-container:first-child .logo { /* Select the first logo and make it larger */
+            width: 250px;
+        }
+        .logo-container:nth-child(4) .logo { /* Select the first logo and make it larger */
+            width: 250px;
+        }
+        @keyframes fadeInAndMove {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to the CAR Showroom</h1>
+        <div class="logos">
+            <div class="logo-container" style="--index: 0;">
+                <a href="./logos/Audi.html">
+                    <img class="logo" src="./assets/Audi Logo.png" alt="Logo 1">
+                </a>
+            </div>
+            <div class="logo-container" style="--index: 1;">
+                <a href="./logos/Benz.html">
+                    <img class="logo" src="./assets/mrcbenz.png" alt="Logo 2">
+                </a>
+            </div>
+            <div class="logo-container" style="--index: 2;">
+                <a href="./logos/Bmw.html">
+                    <img class="logo" src="./assets/logo-bmw.png" alt="Logo 3">
+                </a>
+            </div>
+            <div class="logo-container" style="--index: 3;">
+                <a href="./logos/Audi.html">
+                    <img class="logo" src="./assets/Audi Logo.png" alt="Logo 4">
+                </a>
+            </div>
+            <div class="logo-container" style="--index: 4;">
+                <a href="./logos/Benz.html">
+                    <img class="logo" src="./assets/mrcbenz.png" alt="Logo 5">
+                </a>
+            </div>
+            <div class="logo-container" style="--index: 5;">
+                <a href="./logos/Bmw.html">
+                    <img class="logo" src="./assets/logo-bmw.png" alt="Logo 6">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
