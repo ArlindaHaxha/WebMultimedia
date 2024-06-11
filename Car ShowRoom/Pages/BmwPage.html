@@ -22,6 +22,7 @@
         }
 
         .logo img {
+            cursor: pointer;
             width: 100px;
             height: auto;
             margin-top: 10px;
@@ -218,6 +219,33 @@
         .anchor{
             margin-bottom: 100px;
         }
+        footer {
+            background-color: #111111;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: absolute; 
+        }
+
+        footer nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 20px 20px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ccc;
+        }
         
     </style>
 </head>
@@ -228,7 +256,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="../WelcomePage.html">Home</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Car Race</a></li>
             </ul>
@@ -556,9 +584,14 @@
             <a href="#"><p>See full gallery.</p></a>
         </div>
     </div>
-    <div>
-        
-    </div>
+    <footer>
+        <nav>
+          <a href="../WelcomePage.html">Home</a>
+          <a href="#">News</a>
+          <a href="#">Car Race</a>
+        </nav>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+      </footer>
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

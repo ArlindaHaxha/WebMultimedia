@@ -30,16 +30,19 @@
 
   <script>
     // Function to animate the logo
-    function animateLogo() {
+    function animateLogoAndRedirect() {
       const logo = document.getElementById('logo');
       logo.style.width = '400px'; // Set width to 500px
       logo.style.height = '300px'; // Set height to 500px
+      setTimeout(function() {
+        window.location.href = '../Pages/NissanPage.html';
+      }, 5000); // Redirect after 5 seconds (adjust as needed)
     }
 
     // Run the animation when the page is loaded
     window.onload = function() {
       // Wait for 100ms before starting the animation
-      setTimeout(animateLogo, 100);
+      setTimeout(animateLogoAndRedirect, 100);
     };
   </script>
 </body>

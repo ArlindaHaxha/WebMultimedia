@@ -55,16 +55,19 @@
 
   <script>
     // Function to animate the bull
-    function animateBull() {
+    function animateBullAndRedirect() {
       const bull = document.getElementById('bull');
       bull.style.width = '200px'; // Set width to 100px
       bull.style.height = '150px'; // Set height to 100px
+      setTimeout(function() {
+        window.location.href = '../Pages/LamboPage.html';
+      }, 3000); // Redirect after 3 seconds (adjust as needed)
     }
 
     // Run the animation when the page is loaded
     window.onload = function() {
       // Wait for 100ms before starting the animation
-      setTimeout(animateBull, 100);
+      setTimeout(animateBullAndRedirect, 100);
     };
   </script>
 </body>

@@ -64,10 +64,14 @@
             var logo = document.getElementById('mb-logo');
             logo.classList.add('rotate');
             setTimeout(function() {
-                logo.classList.remove('rotate');
-                logo.classList.add('loaded');
-            }, 2000); // Adjust timing to match animation duration
-        };
+            logo.classList.remove('rotate');
+            logo.classList.add('loaded');
+            setTimeout(function() {
+                window.location.href = '../Pages/BenzPage.html';
+            }, 1000); 
+        }, 2000); 
+};
+
     </script>
 </body>
 </html>

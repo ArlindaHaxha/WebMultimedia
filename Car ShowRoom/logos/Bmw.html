@@ -99,16 +99,19 @@
     // Animation timeline
     const tl = gsap.timeline();
 
-    // Animation to reveal the bigger circle
+    //bigger circle
     tl.to(biggerCircle, { duration: 2, ease: "power2.out", x: app.renderer.width / 2, y: app.renderer.height / 2 });
 
-    // Animation to reveal the smaller circle
+    //smaller circle
     tl.to(smallerCircle, { duration: 2, ease: "power2.out", x: app.renderer.width / 2, y: app.renderer.height / 2 }, "-=0.5");
 
-    // Animation to reveal the letters one by one
+    
     tl.to("#b-text", { duration: 0.5, opacity: 1 })
       .to("#m-text", { duration: 0.5, opacity: 1 })
-      .to("#w-text", { duration: 0.5, opacity: 1 });
+      .to("#w-text", { duration: 0.5, opacity: 1 })
+      .call(function() {
+        window.location.href = "../Pages/BmwPage.html";
+      });
   </script>
 </body>
 </html>

@@ -31,5 +31,20 @@
 </head>
 <body>
   <img id="image" src="../assets/Jeep-Logo-PNG.png" alt="Animated Image">
+
+  <script>
+    // Function to animate the image and redirect to another page
+    function animateImageAndRedirect() {
+      const image = document.getElementById('image');
+      setTimeout(function() {
+        window.location.href = '../Pages/Jeep.html';
+      }, 3000); // Redirect after 3 seconds (adjust as needed)
+    }
+
+    // Run the animation when the page is loaded
+    window.onload = function() {
+      animateImageAndRedirect();
+    };
+  </script>
 </body>
 </html>
