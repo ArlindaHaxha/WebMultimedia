@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmw Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #080a09;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 50px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            text-decoration: none; /* Change color on hover */
+            color: #f0f2f1;
+        }
+
+        .card{
+            background-color: #f0f2f1;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            width: 80%; /* Adjusted width */
+        }
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 20px;
+            cursor: pointer; /* Add cursor pointer */
+        }
+
+        .btn-custom {
+            margin-top: 20px; /* Adjusted margin */
+            width: 80%;
+            align-items: center;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px; /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block; /* Centering the button */
+            margin: 0 auto; /* Centering the button */
+        }
+
+        .btn-custom:hover {
+            background-color: #363632; /* Change color on hover */
+        }
+
+        .section {
+            margin-top: 70px;
+            margin-bottom: 100px;
+        }
+
+        .card-content h5,
+        .card-content p {
+            margin-right: 20px; /* Adjust right margin */
+        }
+
+        .nav-tabs .nav-item {
+            background-color: #3d4846;
+            border-radius: 20px;
+            margin-right: 10px;
+            border: none;
+        }
+
+        .nav-tabs .nav-item a {
+            color: white;
+            font-size: small;
+        }
+
+        .nav-tabs .nav-item.active {
+            background-color: white;
+            border: none;
+            margin-right: 10px;
+            border-radius: 20px !important;
+        }
+
+        .nav-tabs .nav-item.active a {
+            color: #3d4846;
+            font-size: small;
+            border-radius: 20px;
+        }
+        .nav-tabs .nav-item a {
+            border-radius: 20px;
+        }
+        .nav-tabs .nav-item:hover{
+            border: none;
+        }
+
+        .card2 {
+            width: 200px;
+            height: 200px;
+            background-color: #29302f;
+            border: .5px solid white;
+            border-radius: 10px;
+            margin-bottom: 70px;
+            margin-right: 20px;
+        }
+
+        .card-body2 {
+            margin: 30px;
+            text-align: center;
+        }
+
+        .card-title2 {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .card-text2 {
+            font-size: 14px;
+            color: white;
+            font-weight: lighter;
+        }
+
+        .card-text3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .gallery{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .gallery h2{
+            margin-top: 100px;
+            text-align: left;
+            font-size: 25px;
+            font-weight: 900;
+        }
+        .image-container{
+            margin-top: 50px;
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+       
+        .image-container2 {
+            width: 100%; 
+            display: flex;
+            flex-wrap: wrap; /* Allow images to wrap to the next line */
+        }
+        .image-container2 .image-container3 {
+            width: 50%; /* Each image container takes up 50% width */
+            box-sizing: border-box; /* Include padding and border in the width */
+           padding-top: 20px;
+           padding-left: 20px;/* Add padding to separate images */
+        }
+       .image-container1{
+            padding-top: 20px;
+       }
+       .image-container1 img{
+            border-radius: 5px;
+       }
+        .image-container2 img {
+            border-radius: 5px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .exterior h3{
+            font-size: 15px;
+            border-bottom: 3px solid black ;
+            display: inline;
+            padding-bottom: 5px;
+            margin-left: 5px;
+        }
+        .anchor p{
+            text-align: end;
+            text-decoration: underline;
+
+        }
+        .anchor{
+            margin-bottom: 100px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/logo.jpeg" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Car Race</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container section">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-content">
+                            <h5 class="card-title mt-4">2024</h5>
+                            <h1 class="card-title mt-5" style="font-weight: 900;">Jeep Compass</h1>
+                            <p class="card-text mt-5">Starts at:</p>
+                            <h4 class="card-title" style="font-weight: 900;">$25,900</h4>
+                            <button class="btn-custom mt-5 mb-3">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5">
+                <img id="carImage" src="../assets/jeep/jeep1.jpeg" class="img-fluid" alt="Car Image">
+                <div class="mt-5 ml-5">
+                    <span class="circle" style="background-color: #076172;"></span>
+                    <span class="circle" style="background-color: #201f1d;"></span>
+                    <span class="circle" style="background-color: #7c807d;"></span>
+                    <span class="circle" style="background-color: #ac1d2c;"></span>
+                    <span class="circle" style="background-color: #efe8e8d5;"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="" style="background-color: #29302f; margin-top: 50px; padding-top: 50px;">
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 30px;">Key specifications</h3>
+            <ul class="nav nav-tabs" style="border: none;">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#highlights-tab">Highlights</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#engine-tab">Engine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#suspension-tab">Suspension</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#weight-tab">Weight & Capacity</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#safety-tab">Safety</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#entertainment-tab">Entertainment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#electrical-tab">Electrical</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#brakes-tab">Brakes</a>
+                </li>
+            </ul>
+            <div class="tab-content mt-4">
+                <!-- Highlights Tab Content -->
+                <div id="highlights-tab" class="tab-pane fade show active">
+                    <div class="row">
+                        <!-- Cards for Highlights -->
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">2,000 lbs</p>
+                                    <p class="card-text2">Towing Capacity</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Intercooled Turbo Regular Unleaded I-4</p>
+                                    <p class="card-text2">Engine Type</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">24 City / 32 Hwy</p>
+                                    <p class="card-text2">MPG</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">200 hp</p>
+                                    <p class="card-text2">Horsepower</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more cards for Highlights -->
+                    </div>
+                </div>
+                <!-- Engine Tab Content -->
+                <div id="engine-tab" class="tab-pane fade">
+                    <!-- Cards for Engine -->
+                    <div class="row">
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">2.0 L/122</p>
+                                    <p class="card-text2">Displacement</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">200 @ 5000</p>
+                                    <p class="card-text2">SAE Net Horsepower @ RPM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">221 @ 1750</p>
+                                    <p class="card-text2">SAE Net Torque @ RPM</p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <!-- Add more cards for Engine -->
+                    </div>
+                </div>
+                <div id="suspension-tab" class="tab-pane fade">
+                    <div class="row">
+                        <!-- Cards for Highlights -->
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Strut</p>
+                                    <p class="card-text2">Suspension Type - Front (Cont.)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Strut</p>
+                                    <p class="card-text2">Suspension Type - Rear</p>
+                                </div>
+                            </div>
+                        </div>
+                   
+                        <!-- Add more cards for Highlights -->
+                    </div>
+                </div>
+                <div id="weight-tab" class="tab-pane fade">
+                    <div class="row">
+                        <!-- Cards for Highlights -->
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">14 gal</p>
+                                    <p class="card-text2">Fuel Tank Capacity, Approx</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">3,620 lbs</p>
+                                    <p class="card-text2">Base Curb Weight</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">2,000 lbs</p>
+                                    <p class="card-text2">Wt Distributing Hitch - Max Trailer Wt.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">0 lbs</p>
+                                    <p class="card-text2">Total Option Weight</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more cards for Highlights -->
+                    </div>
+                </div>
+                <div id="safety-tab" class="tab-pane fade">
+                    <div class="row">
+                        <!-- Cards for Highlights -->
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Standard</p>
+                                    <p class="card-text2">Automatic Emergency Braking</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Standard</p>
+                                    <p class="card-text2">Backup Camera</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Standard</p>
+                                    <p class="card-text2">Stability Control</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="entertainment-tab" class="tab-pane fade">
+                    <div class="row"> 
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Standard</p>
+                                    <p class="card-text2">Bluetooth®</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more cards for Highlights -->
+                    </div>
+                </div>
+                <div id="electrical-tab" class="tab-pane fade">
+                    <div class="row">
+                        <!-- Cards for Highlights -->
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">180</p>
+                                    <p class="card-text2">Maximum Alternator Capacity (amps)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="brakes-tab" class="tab-pane fade">
+                    <div class="row">
+                        <!-- Cards for Highlights -->
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">12 in</p>
+                                    <p class="card-text2">Front Brake Rotor Diam x Thickness</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="card2">
+                                <div class="card-body2">
+                                    <h5 class="card-title2"><i class="fas fa-car"></i> </h5>
+                                    <p class="card-text3">Yes</p>
+                                    <p class="card-text2">Disc - Rear (Yes or )</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more cards for Highlights -->
+                    </div>
+                </div>
+                <!-- Add more tab contents for other specifications -->
+            </div>
+        </div>
+    </div>
+    <div class="gallery">
+        <h2>Photo & video gallery</h2>
+        <div class="tab-content">
+            <div class="exterior">
+                <h3 class="">Exterior</h3>
+                <div class="image-container">
+                        <div class="image-container1">
+                            <img src="../assets/jeep/jeep-1.webp" alt="Image 1">
+                        </div>
+                    <div class="image-container2">
+                        <div class="image-container3">
+                            <img src="../assets/jeep/jeep-22.webp" alt="Image 1">
+                        </div>
+                        <div class="image-container3">
+                            <img src="../assets/jeep/jeep-3.webp" alt="Image 2">
+                        </div>
+                        <div class="image-container3">
+                            <img src="../assets/jeep/jeep-1.webp" alt="Image 3">
+                        </div>
+                        <div class="image-container3">
+                            <img src="../assets/jeep/jeep-22.webp" alt="Image 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="anchor">
+            <a href="#"><p>See full gallery.</p></a>
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Array of image URLs
+        var images = [
+            "../assets/jeep/jeep1.jpeg",
+            "../assets/jeep/jeep2.jpeg",
+            "../assets/jeep/jeep3.jpeg",
+            "../assets/jeep/jeep4.jpeg",
+            "../assets/jeep/jeep5.jpeg",
+        ];
+
+
+        // Change image when a color span is clicked
+        $(".circle").click(function() {
+            var index = $(this).index();
+            $("#carImage").attr("src", images[index]);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
