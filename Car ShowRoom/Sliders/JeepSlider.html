@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeep Slider</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .main-image {
+      width: 50%;
+      max-height: 75vh;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .thumbnails {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+    }
+
+    .thumbnail {
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .thumbnail img {
+      width: 100px; 
+      height: auto;
+      border: 2px solid transparent;
+    }
+
+    .thumbnail img.active {
+      border-color: blue; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img class="main-image" src="../assets/jeep/jeep-1.webp" alt="Main Image">
+  </div>
+
+  <div class="container">
+    <div class="thumbnails">
+      <div class="thumbnail"><img src="../assets/jeep/jeep-1.webp" alt="Thumbnail 1"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-22.webp" alt="Thumbnail 2"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-3.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-4.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-5.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-6.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-7.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-8.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-9.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-10.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-11.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-12.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/jeep/jeep-13.webp" alt="Thumbnail 3"></div>
+    </div>
+  </div>
+
+  <script>
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('click', () => {
+        thumbnails.forEach(t => t.querySelector('img').classList.remove('active'));
+        thumbnail.querySelector('img').classList.add('active');
+        const mainImage = document.querySelector('.main-image');
+        mainImage.src = thumbnail.querySelector('img').src;
+      });
+    });
+  </script>
+
+</body>
+</html>

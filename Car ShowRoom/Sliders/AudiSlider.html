@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audi Slider</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .main-image {
+      width: 60%;
+      max-height: 85vh;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .thumbnails {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+    }
+
+    .thumbnail {
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .thumbnail img {
+      width: 100px; 
+      height: auto;
+      border: 2px solid transparent;
+    }
+
+    .thumbnail img.active {
+      border-color: blue; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img class="main-image" src="../assets/audimenu1.webp" alt="Main Image">
+  </div>
+
+  <div class="container">
+    <div class="thumbnails">
+      <div class="thumbnail"><img src="../assets/audimenu1.webp" alt="Thumbnail 1"></div>
+      <div class="thumbnail"><img src="../assets/audimenu2.webp" alt="Thumbnail 2"></div>
+      <div class="thumbnail"><img src="../assets/audimenu3.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audimenu4.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-1.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-2.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-3.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-4.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-5.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-6.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-7.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-8.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-9.webp" alt="Thumbnail 3"></div>
+      <div class="thumbnail"><img src="../assets/audi-10.webp" alt="Thumbnail 3"></div>
+    </div>
+  </div>
+
+  <script>
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('click', () => {
+        thumbnails.forEach(t => t.querySelector('img').classList.remove('active'));
+        thumbnail.querySelector('img').classList.add('active');
+        const mainImage = document.querySelector('.main-image');
+        mainImage.src = thumbnail.querySelector('img').src;
+      });
+    });
+  </script>
+
+</body>
+</html>
