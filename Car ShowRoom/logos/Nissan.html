@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nissan Logo Animation</title>
+  <style>
+    body, html {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px; /* Initial width */
+      height: 10px; /* Initial height */
+      transition: width 5s ease, height 5s ease;
+    }
+  </style>
+</head>
+<body>
+  <img id="logo" src="../assets/Nissan.png" alt="Nissan Logo">
+
+  <script>
+    // Function to animate the logo
+    function animateLogo() {
+      const logo = document.getElementById('logo');
+      logo.style.width = '400px'; // Set width to 500px
+      logo.style.height = '300px'; // Set height to 500px
+    }
+
+    // Run the animation when the page is loaded
+    window.onload = function() {
+      // Wait for 100ms before starting the animation
+      setTimeout(animateLogo, 100);
+    };
+  </script>
+</body>
+</html>
