@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Animation</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black; /* Background color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #image {
+      width: 400px; /* Adjust image width */
+      height: auto;
+      opacity: 0; /* Initially hide */
+      animation: slideIn 3s forwards; /* Animation */
+    }
+
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-100%); } /* Start from left */
+      100% { opacity: 1; transform: translateX(0); } /* End at original position */
+    }
+  </style>
+</head>
+<body>
+  <img id="image" src="../assets/Jeep-Logo-PNG.png" alt="Animated Image">
+</body>
+</html>
