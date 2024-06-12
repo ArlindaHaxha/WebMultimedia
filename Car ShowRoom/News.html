@@ -250,6 +250,36 @@
             height: auto; /* Maintain aspect ratio */
             border-radius: 10px; /* Add border radius for rounded corners */
         }
+        .video-slider iframe {
+            margin-left: 250px;
+        }
+        footer {
+            background-color: #111111;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: absolute; 
+        }
+        footer nav {
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 20px 20px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -271,7 +301,6 @@
         <a href="#benz">Benz News</a>
         <a href="#nissan">Nissan News</a>
         <a href="#lambo">Lamborghini News</a>
-        <a href="#jeep">Jeep News</a>
     </nav>
     <section id="audi">
         <h2>Audi News</h2>
@@ -289,7 +318,7 @@
             </div>
             <!-- Video slider -->
             <div class="video-slider">
-                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div><iframe width="560" height="315" src="../Car ShowRoom/assets/videos/Audi.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 <!-- Add more video slides as needed -->
             </div>
         </div>
@@ -331,7 +360,7 @@
         </ul>
         <div class="slider">
             <div class="video-slider">
-                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div><iframe width="560" height="315" src="../Car ShowRoom/assets/videos/Benz.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
         </div>
         <ul class="news-list">
@@ -354,7 +383,7 @@
         </ul>
         <div class="slider">
             <div class="video-slider">
-                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div><iframe width="560" height="315" src="../Car ShowRoom/assets/videos/Nissan.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
         </div>
         <ul class="news-list">
@@ -379,6 +408,14 @@
             </div>
         </div>
     </section>
+    <footer>
+        <nav>
+            <li><a href="../WelcomePage.html">Home</a></li>
+            <li><a href="../News.html">News</a></li>
+            <li><a href="../CarGame.html">Car Game</a></li>
+        </nav>
+        <p>&copy; 2024 Car Showroom. All rights reserved.</p>
+      </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
