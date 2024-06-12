@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car News</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #080a09;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            cursor: pointer;
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        .main-nav {
+            background-color: black;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .main-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .main-nav ul li {
+            margin-right: 50px;
+        }
+        .main-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        .main-nav ul li a:hover {
+            text-decoration: none; /* Change color on hover */
+            color: #f0f2f1;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        #audi {
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+        #audi h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #audi p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        #audi .highlight {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 17px;
+        }
+        #audi .news-list {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+        #audi .news-list li {
+            margin-bottom: 10px;
+            font-size: 17px;
+            color: #444;
+        }
+        #bmw {
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+        #bmw h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #bmw p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        #bmw .highlight {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 17px;
+        }
+        #bmw .news-list {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+        #bmw .news-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #444;
+            letter-spacing: .3px;
+            line-height: 17px;
+            font-size: 17px;
+        }
+        #benz {
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+        #benz h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #benz p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        #benz .highlight {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 17px;
+        }
+        #benz .news-list {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+        #benz .news-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #444;
+            letter-spacing: .3px;
+            line-height: 17px;
+            font-size: 17px;
+        }
+        #nissan {
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+        #nissan h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #nissan p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        #nissan .highlight {
+            font-size: 17px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        #nissan .news-list {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+        #nissan .news-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #444;
+            letter-spacing: .3px;
+            line-height: 17px;
+            font-size: 17px;
+        }
+        #lambo {
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+        #lambo h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #lambo p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        #lambo .highlight {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 17px;
+        }
+        #lambo .news-list {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+        #lambo .news-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #444;
+            letter-spacing: .3px;
+            line-height: 17px;
+            font-size: 17px;
+        }
+        #jeep {
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+        #jeep h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #jeep p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        #jeep .highlight {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 17px;
+        }
+        #jeep .news-list {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+        #jeep .news-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #444;
+            letter-spacing: .3px;
+            line-height: 17px;
+            font-size: 17px;
+        }
+        .image-slider img {
+            width: 100%; /* Make images fill their container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Add border radius for rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Car ShowRoom/assets/logo.jpeg" alt="Logo">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../Car ShowRoom/WelcomePage.html">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Car Race</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav>
+        <a href="#audi">Audi News</a>
+        <a href="#bmw">BMW News</a>
+        <a href="#benz">Benz News</a>
+        <a href="#nissan">Nissan News</a>
+        <a href="#lambo">Lamborghini News</a>
+        <a href="#jeep">Jeep News</a>
+    </nav>
+    <section id="audi">
+        <h2>Audi News</h2>
+        <p>Exciting developments are happening at Audi! Here are some of the latest updates:</p>
+        <ul class="news-list">
+            <li><span class="highlight">New Electric Models:</span> Audi has been making significant strides in the electric vehicle (EV) market, with the release of their latest models such as the Audi e-tron and Audi e-tron GT. These models boast impressive performance, long-range capabilities, and advanced technology features, positioning Audi as a key player in the EV industry.</li>
+        </ul>
+        <div class="slider">
+            <!-- Image slider -->
+            <div class="image-slider">
+                <div><img src="../Car ShowRoom/assets/audiNews2.jpeg" alt="Image 1"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews3.webp" alt="Image 2"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews4.jpeg" alt="Image 3"></div>
+                <!-- Add more image slides as needed -->
+            </div>
+            <!-- Video slider -->
+            <div class="video-slider">
+                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <!-- Add more video slides as needed -->
+            </div>
+        </div>
+        <ul class="news-list">
+            <li><span class="highlight">Partnerships and Collaborations:</span> Audi has been actively forming partnerships and collaborations with other companies to further innovate in areas such as autonomous driving technology, sustainable mobility solutions, and digital services. These partnerships aim to enhance Audi's product offerings and provide customers with cutting-edge features and experiences.</li>
+            <li><span class="highlight">Sustainable Initiatives:</span> Audi has been emphasizing its commitment to sustainability by investing in eco-friendly manufacturing processes, reducing carbon emissions across its supply chain, and introducing more sustainable materials in its vehicles. The company aims to achieve carbon-neutral operations by 2050 and has set ambitious targets to reduce its environmental footprint in the coming years.</li>
+            <li><span class="highlight">Enhanced Connectivity:</span>Audi continues to prioritize digitalization and connectivity in its vehicles, with features such as advanced infotainment systems, seamless smartphone integration, and over-the-air software updates. These technologies enhance the driving experience and provide customers with greater convenience and connectivity on the road.</li>
+        </ul>
+        <p>Stay tuned for more updates and announcements from Audi!</p>
+    </section>
+    <section id="bmw">
+        <h2>BMW News</h2>
+        <p>Exciting developments are happening at Bmw! Here are some of the latest updates:</p>
+        <ul class="news-list">
+            <li><span class="highlight">Introducing the BMW M8 Gran Coupe: Unmatched Luxury and Performance</span> BMW enthusiasts, get ready to be thrilled! The much-anticipated BMW M8 Gran Coupe has finally been unveiled, setting new standards for luxury, performance, and innovation in the automotive world.
+            <br><br>Sleek Design: The M8 Gran Coupe boasts a sleek and dynamic design, with aerodynamic lines that exude power and elegance. From its distinctive kidney grille to its sculpted bodywork, every detail of the M8 Gran Coupe reflects BMW's commitment to craftsmanship and style.
+            <br><br>Unrivaled Performance: Under the hood, the M8 Gran Coupe packs a punch with its powerful engine options. Whether you opt for the standard M TwinPower Turbo V8 engine or the high-performance M8 Competition model, you can expect exhilarating acceleration, precise handling, and a thrilling driving experience on every journey.
+            <br><br>Luxurious Interior: Step inside the M8 Gran Coupe, and you'll be greeted by a luxurious cabin that combines comfort, technology, and sophistication. Premium materials, such as fine leather upholstery and carbon fiber trim, adorn the interior, creating an ambiance of refinement and exclusivity. With advanced features like the BMW iDrive infotainment system and gesture control, you'll stay connected and in control wherever you go.
+            <br><br><br>Innovative Technology: The M8 Gran Coupe is packed with cutting-edge technology designed to enhance safety, convenience, and entertainment. From advanced driver-assistance systems, such as adaptive cruise control and lane-keeping assist, to state-of-the-art connectivity features, like wireless smartphone integration and a Wi-Fi hotspot, the M8 Gran Coupe offers a seamless and enjoyable driving experience for both the driver and passengers.</li>
+        </ul>
+        <div class="slider">
+            <!-- Image slider -->
+            <div class="image-slider">
+                <div><img src="../Car ShowRoom/assets/bmw/bmwNews1.jpeg" alt="Image 1"></div>
+                <div><img src="../Car ShowRoom/assets/bmw/bmwNews3.webp" alt="Image 2"></div>
+                <div><img src="../Car ShowRoom/assets/bmw/bmwNews4.webp" alt="Image 3"></div>
+                <div><img src="../Car ShowRoom/assets/bmw/bmwNews5.webp" alt="Image 2"></div>
+                <div><img src="../Car ShowRoom/assets/bmw/bmwNews6.webp" alt="Image 3"></div>
+                <!-- Add more image slides as needed -->
+            </div>
+        </div>
+        <p>Stay tuned for more updates and announcements from Bmw!</p>
+    </section>
+    <section id="benz">
+        <h2>Mercedes-Benz News</h2>
+        <p>Exciting developments are happening at Audi! Here are some of the latest updates:</p>
+        <ul class="news-list">
+            <li><span class="highlight">Introducing the Mercedes-Benz EQS: Redefining Electric Luxury</span> Mercedes-Benz continues its legacy of innovation with the unveiling of the highly anticipated EQS, the brand's flagship electric sedan. Pioneering a new era of sustainable luxury, the EQS combines cutting-edge technology, unparalleled comfort, and breathtaking design to set new standards in the electric vehicle (EV) market.</li>
+        </ul>
+        <div class="slider">
+            <div class="video-slider">
+                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            </div>
+        </div>
+        <ul class="news-list">
+            <li><span class="highlight">Effortless Elegance:</span>  From the moment you set eyes on the EQS, its striking design captivates the imagination. With its sleek, aerodynamic silhouette and seamless surfaces, the EQS exudes a sense of effortless elegance that is unmistakably Mercedes-Benz. Every curve and contour is meticulously crafted to enhance both aesthetics and performance, while the absence of traditional grille gives the front end a modern and distinctive appearance.</li>
+            <li><span class="highlight">Luxurious Interior:</span> Step inside the EQS, and you'll discover a sanctuary of luxury and innovation. The spacious cabin envelops passengers in sumptuous comfort, with premium materials, such as natural wood, soft leather, and sustainable textiles, adorning every surface. Ambient lighting accents the interior, creating a warm and inviting atmosphere, while advanced features, including the MBUX Hyperscreen infotainment system and augmented reality navigation, provide intuitive control and connectivity at your fingertips.</li>
+            <li><span class="highlight">Unrivaled Performance:</span> Beneath its sleek exterior, the EQS harnesses the power of electric propulsion to deliver a driving experience unlike any other. With a range of up to 400 miles on a single charge and lightning-fast acceleration thanks to dual-motor all-wheel drive, the EQS combines eco-conscious efficiency with exhilarating performance. Adaptive air suspension and rear-axle steering ensure agile handling and a smooth ride, while intelligent energy management systems optimize range and charging capabilities for maximum convenience and peace of mind.</li>
+            <li><span class="highlight">Sustainability Leadership:</span>  As a flagship model of Mercedes-Benz's EQ electric vehicle lineup, the EQS exemplifies the brand's commitment to sustainability and environmental stewardship. From its eco-friendly materials and energy-efficient production processes to its carbon-neutral operation and recyclability, every aspect of the EQS is designed with sustainability in mind, ensuring that luxury and responsibility go hand in hand.</li>
+            <li><span class="highlight">Availability:</span> The Mercedes-Benz EQS is set to arrive at select dealerships worldwide later this year, with pre-orders already underway. Whether you're a discerning enthusiast, a forward-thinking trendsetter, or simply someone who appreciates the finer things in life, the EQS invites you to experience the future of electric luxury firsthand.</li>
+        </ul>
+        <p>This fictional news article highlights the key features and attributes of the Mercedes-Benz EQS, presenting it as a groundbreaking addition to the luxury electric vehicle market.</p>
+    </section>
+    <section id="nissan">
+        <h2>Nissan News</h2>
+        <p>Nissan Partners with SpaceX to Develop Lunar Rover for NASA's Artemis Mission:</p>
+        <ul class="news-list">
+            <li><span class="highlight"></span> In a groundbreaking collaboration between automotive giant Nissan and space exploration leader SpaceX, plans have been unveiled for the development of a cutting-edge lunar rover to support NASA's upcoming Artemis mission. This ambitious project aims to pave the way for sustainable human presence on the Moon and marks a significant milestone in the convergence of automotive and space technologies.</li>
+            <li><span class="highlight">The Lunar Frontier: </span> As humanity sets its sights on returning to the Moon and establishing a sustainable lunar outpost, the need for advanced transportation solutions becomes increasingly apparent. Nissan, leveraging its expertise in electric vehicles and off-road capabilities, has joined forces with SpaceX, renowned for its innovation in space exploration, to tackle this challenge head-on.</li>
+            <li><span class="highlight">Unveiling the MoonRover: </span>Dubbed the "MoonRover," this state-of-the-art lunar vehicle will be designed to traverse the rugged terrain of the lunar surface with ease, transporting astronauts and cargo between the lunar habitat and various exploration sites. Drawing inspiration from Nissan's lineup of electric crossover vehicles, the MoonRover will feature a zero-emission electric drivetrain, advanced autonomous navigation systems, and ruggedized components capable of withstanding the harsh lunar environment.</li>
+            <li><span class="highlight">SpaceX's Lunar Expertise:</span> SpaceX, led by visionary entrepreneur Elon Musk, will provide crucial support and expertise in the development and integration of propulsion systems, guidance and navigation technologies, and lunar landing capabilities for the MoonRover. Leveraging its proven track record of success in space missions, including the historic Crew Dragon flights to the International Space Station, SpaceX brings unparalleled expertise to the table, ensuring the success of the Artemis mission and beyond.</li>
+        </ul>
+        <div class="slider">
+            <!-- Image slider -->
+            <div class="image-slider">
+                <div><img src="../Car ShowRoom/assets/audiNews2.jpeg" alt="Image 1"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews3.webp" alt="Image 2"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews4.jpeg" alt="Image 3"></div>
+                <!-- Add more image slides as needed -->
+            </div>
+            <!-- Video slider -->
+            <div class="video-slider">
+                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <!-- Add more video slides as needed -->
+            </div>
+        </div>
+        <ul class="news-list">
+            <li><span class="highlight">NASA's Artemis Mission::</span> The collaborative effort between Nissan, SpaceX, and NASA is part of the Artemis program, which aims to return astronauts to the Moon by 2024 and establish a sustainable human presence on Earth's celestial neighbor. By developing innovative technologies such as the MoonRover, the Artemis mission seeks to expand humanity's understanding of the Moon, unlock its scientific potential, and lay the groundwork for future exploration of Mars and beyond.</li>
+            <li><span class="highlight">A New Frontier:</span> The partnership between Nissan, SpaceX, and NASA represents a bold leap into the future of space exploration and transportation. As the world eagerly anticipates the next chapter in humanity's journey to the stars, the MoonRover stands poised to play a pivotal role in shaping the future of lunar exploration and paving the way for humanity's continued exploration of the cosmos.</li>
+        </ul>
+        <p>Stay tuned for more updates and announcements from Audi!</p>
+    </section>
+    <section id="lambo">
+        <h2>Lamborghini News</h2>
+        <p>Exciting developments are happening at Audi! Here are some of the latest updates:</p>
+        <ul class="news-list">
+            <li><span class="highlight">New Electric Models:</span> Audi has been making significant strides in the electric vehicle (EV) market, with the release of their latest models such as the Audi e-tron and Audi e-tron GT. These models boast impressive performance, long-range capabilities, and advanced technology features, positioning Audi as a key player in the EV industry.</li>
+        </ul>
+        <div class="slider">
+            <!-- Image slider -->
+            <div class="image-slider">
+                <div><img src="../Car ShowRoom/assets/audiNews2.jpeg" alt="Image 1"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews3.webp" alt="Image 2"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews4.jpeg" alt="Image 3"></div>
+                <!-- Add more image slides as needed -->
+            </div>
+            <!-- Video slider -->
+            <div class="video-slider">
+                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <!-- Add more video slides as needed -->
+            </div>
+        </div>
+        <ul class="news-list">
+            <li><span class="highlight">Partnerships and Collaborations:</span> Audi has been actively forming partnerships and collaborations with other companies to further innovate in areas such as autonomous driving technology, sustainable mobility solutions, and digital services. These partnerships aim to enhance Audi's product offerings and provide customers with cutting-edge features and experiences.</li>
+            <li><span class="highlight">Sustainable Initiatives:</span> Audi has been emphasizing its commitment to sustainability by investing in eco-friendly manufacturing processes, reducing carbon emissions across its supply chain, and introducing more sustainable materials in its vehicles. The company aims to achieve carbon-neutral operations by 2050 and has set ambitious targets to reduce its environmental footprint in the coming years.</li>
+            <li><span class="highlight">Enhanced Connectivity:</span>Audi continues to prioritize digitalization and connectivity in its vehicles, with features such as advanced infotainment systems, seamless smartphone integration, and over-the-air software updates. These technologies enhance the driving experience and provide customers with greater convenience and connectivity on the road.</li>
+        </ul>
+        <p>Stay tuned for more updates and announcements from Audi!</p>
+    </section>
+    <section id="jeep">
+        <h2>Jeep News</h2>
+        <p>Exciting developments are happening at Audi! Here are some of the latest updates:</p>
+        <ul class="news-list">
+            <li><span class="highlight">New Electric Models:</span> Audi has been making significant strides in the electric vehicle (EV) market, with the release of their latest models such as the Audi e-tron and Audi e-tron GT. These models boast impressive performance, long-range capabilities, and advanced technology features, positioning Audi as a key player in the EV industry.</li>
+        </ul>
+        <div class="slider">
+            <!-- Image slider -->
+            <div class="image-slider">
+                <div><img src="../Car ShowRoom/assets/audiNews2.jpeg" alt="Image 1"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews3.webp" alt="Image 2"></div>
+                <div><img src="../Car ShowRoom/assets/audiNews4.jpeg" alt="Image 3"></div>
+                <!-- Add more image slides as needed -->
+            </div>
+            <!-- Video slider -->
+            <div class="video-slider">
+                <div><iframe width="560" height="315" src="https://youtu.be/eVK3ZWdPA6s?si=DlXBuZkOD_5KG7Ww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <!-- Add more video slides as needed -->
+            </div>
+        </div>
+        <ul class="news-list">
+            <li><span class="highlight">Partnerships and Collaborations:</span> Audi has been actively forming partnerships and collaborations with other companies to further innovate in areas such as autonomous driving technology, sustainable mobility solutions, and digital services. These partnerships aim to enhance Audi's product offerings and provide customers with cutting-edge features and experiences.</li>
+            <li><span class="highlight">Sustainable Initiatives:</span> Audi has been emphasizing its commitment to sustainability by investing in eco-friendly manufacturing processes, reducing carbon emissions across its supply chain, and introducing more sustainable materials in its vehicles. The company aims to achieve carbon-neutral operations by 2050 and has set ambitious targets to reduce its environmental footprint in the coming years.</li>
+            <li><span class="highlight">Enhanced Connectivity:</span>Audi continues to prioritize digitalization and connectivity in its vehicles, with features such as advanced infotainment systems, seamless smartphone integration, and over-the-air software updates. These technologies enhance the driving experience and provide customers with greater convenience and connectivity on the road.</li>
+        </ul>
+        <p>Stay tuned for more updates and announcements from Audi!</p>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $('.image-slider').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                dots: true
+            });
+
+            
+            $('.video-slider').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                dots: true
+            });
+        });
+    </script>
+</body>
+</html>
