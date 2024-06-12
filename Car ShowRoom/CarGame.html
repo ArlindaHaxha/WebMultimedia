@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            border: 2px solid white;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.7/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <script>
+       
+        const app = new PIXI.Application({ width: 800, height: 600 });
+        document.body.appendChild(app.view);
+
+        
+        const carTexture = PIXI.Texture.from('./assets/car1_spr.png');
+        const obstacleTexture = PIXI.Texture.from('./assets/coin 2.png');
+
+        
+        const car = new PIXI.Sprite(carTexture);
+        car.anchor.set(0.5);
+        car.x = app.screen.width / 2;
+        car.y = app.screen.height - 100;
+        app.stage.addChild(car);
+
+        
+        const obstacles = new PIXI.Container();
+        app.stage.addChild(obstacles);
+
+       
+        let score = 0;
+        let health = 100;
+        const obstacleSpeed = 5;
+        const spawnInterval = 1000; 
+        let lastSpawn = 0;
+
+        
+        const left = keyboard(37);
+        const right = keyboard(39);
+
+       
+        left.press = () => {
+            car.vx = -5;
+        };
+        left.release = () => {
+            if (!right.isDown) {
+                car.vx = 0;
+            }
+        };
+
+       
+        right.press = () => {
+            car.vx = 5;
+        };
+        right.release = () => {
+            if (!left.isDown) {
+                car.vx = 0;
+            }
+        };
+
+       
+        app.ticker.add(() => {
+            
+            car.x += car.vx || 0;
+
+            
+            if (Date.now() - lastSpawn > spawnInterval) {
+                spawnObstacle();
+                lastSpawn = Date.now();
+            }
+
+            
+            for (const obstacle of obstacles.children) {
+                obstacle.y += obstacleSpeed;
+                if (obstacle.y > app.screen.height + obstacle.height) {
+                    obstacle.destroy();
+                }
+                
+                if (hitTestRectangle(car, obstacle)) {
+                    health -= 10;
+                    obstacle.destroy();
+                }
+            }
+
+            
+            console.log("Score:", score);
+            console.log("Health:", health);
+
+            
+            if (health <= 0) {
+                endGame();
+            }
+        });
+
+        
+        function spawnObstacle() {
+            const obstacle = new PIXI.Sprite(obstacleTexture);
+            obstacle.anchor.set(0.5);
+            obstacle.x = Math.random() * app.screen.width;
+            obstacle.y = -obstacle.height;
+            obstacles.addChild(obstacle);
+            console.log("Obstacle spawned:", obstacle);
+        }
+
+        
+        function keyboard(keyCode) {
+            const key = {};
+            key.code = keyCode;
+            key.isDown = false;
+            key.isUp = true;
+            key.press = undefined;
+            key.release = undefined;
+            key.downHandler = (event) => {
+                if (event.keyCode === key.code) {
+                    if (key.isUp && key.press) key.press();
+                    key.isDown = true;
+                    key.isUp = false;
+                }
+                event.preventDefault();
+            };
+
+            key.upHandler = (event) => {
+                if (event.keyCode === key.code) {
+                    if (key.isDown && key.release) key.release();
+                    key.isDown = false;
+                    key.isUp = true;
+                }
+                event.preventDefault();
+            };
+
+            window.addEventListener('keydown', key.downHandler.bind(key), false);
+            window.addEventListener('keyup', key.upHandler.bind(key), false);
+            return key;
+        }
+
+        
+        function hitTestRectangle(sprite1, sprite2) {
+            const rect1 = sprite1.getBounds();
+            const rect2 = sprite2.getBounds();
+            return rect1.x < rect2.x + rect2.width &&
+                   rect1.x + rect1.width > rect2.x &&
+                   rect1.y < rect2.y + rect2.height &&
+                   rect1.y + rect1.height > rect2.y;
+        }
+
+        
+        function endGame() {
+           
+            app.ticker.stop();
+
+            
+            alert(`Game Over\nCoins Collected: ${score}`);
+        }
+    </script>
+</body>
+</html>
